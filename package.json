@@ -1,5 +1,6 @@
 {
   "name": "vscode-extension-example",
+  "publisher": "suresofttech",
   "displayName": "vscode-extension-example",
   "description": "",
   "version": "0.0.1",
@@ -9,15 +10,31 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:vscode-extension-example.helloWorld"
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "copilotLikeViewContainer",
+          "title": "Copilot like",
+          "icon": "$(chat-editor-label-icon)"
+        }
+      ]
+    },
+    "views": {
+      "copilotLikeViewContainer": [
+        {
+          "type": "webview",
+          "id": "copilotLikeView",
+          "name": "Copilot-like view"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "vscode-extension-example.helloWorld",
-        "title": "Hello World"
+        "command": "copilotLike.showMessage",
+        "title": "Show Message"
       }
     ]
   },
@@ -50,6 +67,8 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.52.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
