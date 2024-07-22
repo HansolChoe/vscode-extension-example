@@ -35,8 +35,22 @@
       {
         "command": "copilotLike.showMessage",
         "title": "Show Message"
+      },
+      {
+        "command": "copilotLike.resetHistory",
+        "title": "Reset Chat History",
+        "icon": "$(refresh)"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "copilotLike.resetHistory",
+          "when": "view == copilotLikeView",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -44,6 +58,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "test": "vscode-test",
     "build": "webpack",
     "start": "webpack --watch"
@@ -54,12 +69,13 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/vscode": "^1.91.0",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
     "eslint": "^8.57.0",
     "html-webpack-plugin": "^5.6.0",
+    "prettier": "^3.3.3",
     "source-map-loader": "^5.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
