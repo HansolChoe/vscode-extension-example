@@ -98,7 +98,7 @@ export class CopilotLikeViewProvider implements vscode.WebviewViewProvider {
     });
   }
 
-  private _getHtmlForWebview(webview: vscode.Webview) {
+  protected _getHtmlForWebview(webview: vscode.Webview) {
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "dist", "bundle.js"),
     );
